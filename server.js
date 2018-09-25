@@ -51,6 +51,12 @@ app.get("/api/timestamp/:date_string", function (req, res) {
   }
 });
 
+// your first API endpoint... 
+app.get("/api/timestamp/", function (req, res) {
+    let return_date = new Date();
+    res.json({"unix": return_date.getTime(), "utc" : return_date.toUTCString() });
+});
+
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
